@@ -1335,7 +1335,7 @@ export const TeamPage = ({ navigate }: { navigate: (href: string) => void }) => 
                 </div>
 
                 <button 
-                  onClick={() => navigate(`/${member.id}`)}
+                  onClick={() => navigate(`/team/${member.id}`)}
                   className={`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${member.btnAccent}`}
                 >
                   View Full Page <ArrowRight className="w-4 h-4" />
