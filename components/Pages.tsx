@@ -975,7 +975,7 @@ export const MdKaifAnsariPage = () => {
             <div className="absolute inset-[-14px] bg-gradient-to-br from-cyan-400/40 to-purple-500/30 rounded-[30px] filter blur-[2px] opacity-70"></div>
             <div className="relative z-10 bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 border border-white/10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl flex flex-col items-center justify-center">
               <img 
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&h=800&q=80"
+                src="https://cdn.ailm.in/Male_video_editor_holding_camera_202607121646-300kb.jpg"
                 alt="Md Kaif Ansari portrait"
                 className="w-full h-full object-cover select-none pointer-events-none"
                 referrerPolicy="no-referrer"
@@ -1226,7 +1226,7 @@ export const TeamPage = ({ navigate }: { navigate: (href: string) => void }) => 
       bio: "Md Kaif Ansari is an experienced digital expert specializing in cinematic brand films, high-energy ads, creative strategy, and cutting-edge digital experiences. With over 8 years of production expertise, he leads the creative vision at AILM.",
       skills: ["Video Editing", "AI Production", "Creative Direction", "Web Design"],
       stats: { projects: "500+", experience: "8+ Yrs", clients: "50+" },
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&h=800&q=80",
+      image: "https://cdn.ailm.in/Male_video_editor_holding_camera_202607121646-300kb.jpg",
       color: "from-cyan-500/20 to-blue-500/20",
       accent: "text-cyan-400 border-cyan-400/30 bg-cyan-400/5",
       btnAccent: "bg-cyan-400 text-slate-950 hover:bg-cyan-300 shadow-[0_6px_20px_-8px_rgba(34,211,238,0.6)]"
