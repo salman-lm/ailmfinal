@@ -931,7 +931,7 @@ export const MdKaifAnsariPage = () => {
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px', maskImage: 'radial-gradient(120% 80% at 50% 30%, #000 0%, transparent 75%)' }}></div>
 
         <div className="max-w-[1180px] mx-auto px-8 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
-          <div className="lg:col-span-7">
+          <div className="lg:col-span-8">
             <div className="inline-flex items-center gap-3 text-cyan-400 font-bold uppercase tracking-[0.24em] text-xs">
               <span className="w-6 h-[1px] bg-cyan-400"></span>
               AI Trainer & Content Creator
@@ -971,14 +971,15 @@ export const MdKaifAnsariPage = () => {
           </div>
 
           {/* PORTRAIT */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-4 relative max-w-[340px] w-full mx-auto lg:ml-auto">
             <div className="absolute inset-[-14px] bg-gradient-to-br from-cyan-400/40 to-purple-500/30 rounded-[30px] filter blur-[2px] opacity-70"></div>
-            <div className="relative z-10 bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 border border-white/10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl flex flex-col items-center justify-center p-8 text-center text-slate-500">
-              <div className="w-28 h-28 rounded-full bg-gradient-to-tr from-cyan-400 to-purple-500 flex items-center justify-center font-tech font-bold text-4xl text-[#101016] shadow-xl mb-6">
-                MK
-              </div>
-              <p className="font-semibold text-white text-base">Your photo here</p>
-              <p className="text-xs text-[#888] mt-2 max-w-[200px]">Replace with a sharp headshot (portrait, 4:5)</p>
+            <div className="relative z-10 bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 border border-white/10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl flex flex-col items-center justify-center">
+              <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&h=800&q=80"
+                alt="Md Kaif Ansari portrait"
+                className="w-full h-full object-cover select-none pointer-events-none"
+                referrerPolicy="no-referrer"
+              />
             </div>
 
             {/* floating card */}
@@ -1212,6 +1213,262 @@ export const MdKaifAnsariPage = () => {
           </div>
         </div>
       </footer>
+    </div>
+  );
+};
+
+export const TeamPage = ({ navigate }: { navigate: (href: string) => void }) => {
+  const teamMembers = [
+    {
+      id: "mdkaifansari",
+      name: "Md Kaif Ansari",
+      role: "Creative Director & Founder",
+      bio: "Md Kaif Ansari is an experienced digital expert specializing in cinematic brand films, high-energy ads, creative strategy, and cutting-edge digital experiences. With over 8 years of production expertise, he leads the creative vision at AILM.",
+      skills: ["Video Editing", "AI Production", "Creative Direction", "Web Design"],
+      stats: { projects: "500+", experience: "8+ Yrs", clients: "50+" },
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&h=800&q=80",
+      color: "from-cyan-500/20 to-blue-500/20",
+      accent: "text-cyan-400 border-cyan-400/30 bg-cyan-400/5",
+      btnAccent: "bg-cyan-400 text-slate-950 hover:bg-cyan-300 shadow-[0_6px_20px_-8px_rgba(34,211,238,0.6)]"
+    },
+    {
+      id: "sarahjenkins",
+      name: "Sarah Jenkins",
+      role: "Lead Video Editor & Motion Designer",
+      bio: "Sarah Jenkins crafts scroll-stopping animations, cinematic pacing, and precision color grading. She transforms raw footage into high-converting, premium stories for social media and global digital campaigns.",
+      skills: ["Color Grading", "Motion Graphics", "Premiere Pro", "DaVinci Resolve"],
+      stats: { projects: "300+", experience: "6+ Yrs", clients: "40+" },
+      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&h=800&q=80",
+      color: "from-fuchsia-500/20 to-purple-500/20",
+      accent: "text-fuchsia-400 border-fuchsia-400/30 bg-fuchsia-400/5",
+      btnAccent: "bg-fuchsia-500 text-white hover:bg-fuchsia-400 shadow-[0_6px_20px_-8px_rgba(217,70,239,0.6)]"
+    },
+    {
+      id: "alexchen",
+      name: "Alex Chen",
+      role: "Lead Developer & Systems Architect",
+      bio: "Alex Chen is a full-stack developer who designs ultra-fast interactive systems and web architectures. He ensures our custom software solutions are scalable, lightning-fast, and integrated flawlessly with modern APIs.",
+      skills: ["React & Node.js", "TypeScript", "Cloud Systems", "Database Optimization"],
+      stats: { projects: "45+", experience: "7+ Yrs", clients: "30+" },
+      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&h=800&q=80",
+      color: "from-emerald-500/20 to-teal-500/20",
+      accent: "text-emerald-400 border-emerald-400/30 bg-emerald-400/5",
+      btnAccent: "bg-emerald-400 text-slate-950 hover:bg-emerald-300 shadow-[0_6px_20px_-8px_rgba(52,211,153,0.6)]"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-950 text-white pt-32 pb-24 px-4 overflow-hidden">
+      {/* Background glow effects */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute w-[500px] h-[500px] right-[-100px] top-[10%] rounded-full filter blur-[120px] opacity-10 bg-cyan-500"></div>
+        <div className="absolute w-[500px] h-[500px] left-[-100px] bottom-[10%] rounded-full filter blur-[120px] opacity-10 bg-purple-500"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header */}
+        <div className="text-center mb-20 max-w-2xl mx-auto">
+          <span className="text-cyan-400 font-bold uppercase tracking-[0.24em] text-xs px-3 py-1 bg-cyan-400/10 border border-cyan-400/20 rounded-full">
+            Our Elite Collective
+          </span>
+          <h1 className="text-4xl md:text-5xl font-tech font-bold text-white mt-6 mb-4 tracking-tight leading-tight">
+            Meet the Creative & <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Technical Minds</span>
+          </h1>
+          <p className="text-base text-slate-400 font-light leading-relaxed">
+            We merge master storytelling with premium technology to create content and code that drives explosive business results.
+          </p>
+        </div>
+
+        {/* Members Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {teamMembers.map((member) => (
+            <div 
+              key={member.id}
+              className="bg-slate-900/40 border border-slate-800 rounded-3xl overflow-hidden hover:border-slate-700 transition-all duration-300 flex flex-col group relative animate-fade-in"
+            >
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent z-10"></div>
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <span className={`absolute top-4 right-4 text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full border ${member.accent} z-20`}>
+                  {member.role.split(" & ")[0]}
+                </span>
+              </div>
+
+              <div className="p-8 flex flex-col flex-grow relative z-10">
+                <h3 className="text-2xl font-tech font-bold text-white tracking-tight">{member.name}</h3>
+                <p className="text-xs text-slate-400 font-medium mt-1 mb-4">{member.role}</p>
+                <p className="text-sm text-slate-400 font-light leading-relaxed flex-grow">{member.bio}</p>
+
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-2 py-4 my-4 border-y border-slate-800/80 text-center">
+                  <div>
+                    <div className="text-lg font-bold text-white font-tech">{member.stats.experience}</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider">Experience</div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-white font-tech">{member.stats.projects}</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider">Delivered</div>
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-white font-tech">{member.stats.clients}</div>
+                    <div className="text-[10px] text-slate-500 uppercase tracking-wider">Clients</div>
+                  </div>
+                </div>
+
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {member.skills.map((skill) => (
+                    <span 
+                      key={skill}
+                      className="text-[10px] text-slate-400 font-medium px-2 py-1 bg-slate-800/50 rounded-md border border-slate-700/30"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+
+                <button 
+                  onClick={() => navigate(`/${member.id}`)}
+                  className={`w-full py-3.5 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 ${member.btnAccent}`}
+                >
+                  View Full Page <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const SarahJenkinsPage = () => {
+  return (
+    <div className="bg-slate-950 text-[#f4f4f6] font-sans antialiased overflow-x-hidden min-h-screen pt-32 pb-24">
+      <div className="max-w-[1180px] mx-auto px-8 relative z-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center animate-fade-in">
+        <div className="lg:col-span-8">
+          <div className="inline-flex items-center gap-3 text-fuchsia-400 font-bold uppercase tracking-[0.24em] text-xs">
+            <span className="w-6 h-[1px] bg-fuchsia-400"></span>
+            Lead Video Editor & Motion Designer
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-tech font-bold text-white mt-6 leading-[1.05] tracking-tight">
+            Pacing that keeps viewers <span className="text-fuchsia-400">fully hooked.</span>
+          </h1>
+          
+          <p className="text-lg text-[#ccc] max-w-xl mt-6 leading-relaxed font-light">
+            I'm Sarah Jenkins. I shape raw footage into high-converting stories, using fast transitions, modern sound design, and custom motion graphics that define industry standards.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mt-8">
+            <a href="mailto:mdkaif62990@gmail.com?subject=Inquiry%20for%20Sarah%20Jenkins" className="font-tech font-bold text-sm bg-fuchsia-500 text-white px-8 py-4 rounded-full flex items-center gap-2.5 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(217,70,239,0.6)] hover:translate-y-[-3px] hover:shadow-[0_16px_40px_-12px_rgba(217,70,239,0.85)]">
+              Let's Create <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 relative max-w-[340px] w-full mx-auto lg:ml-auto">
+          <div className="absolute inset-[-14px] bg-gradient-to-br from-fuchsia-400/40 to-purple-500/30 rounded-[30px] filter blur-[2px] opacity-70"></div>
+          <div className="relative z-10 bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 border border-white/10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl flex flex-col items-center justify-center">
+            <img 
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&h=800&q=80"
+              alt="Sarah Jenkins Portrait"
+              className="w-full h-full object-cover select-none pointer-events-none"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
+      </div>
+
+      <section className="py-24 bg-[#14141d]/50 border-y border-white/5 mt-16">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <h2 className="text-3xl font-tech font-bold text-white mb-12">Expert Capabilities</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-[#181824] border border-white/5 rounded-2xl p-8 hover:border-fuchsia-500/20 transition-all duration-300">
+              <Clapperboard className="w-10 h-10 text-fuchsia-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-2 font-tech">Cinematic Video Editing</h3>
+              <p className="text-slate-400 font-light leading-relaxed">
+                Seamless narratives, precise pacing, and dramatic story arcs designed to maximize user session length and boost deep emotional connection.
+              </p>
+            </div>
+            <div className="bg-[#181824] border border-white/5 rounded-2xl p-8 hover:border-fuchsia-500/20 transition-all duration-300">
+              <Zap className="w-10 h-10 text-fuchsia-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-2 font-tech">Motion Graphics & VFX</h3>
+              <p className="text-slate-400 font-light leading-relaxed">
+                Custom visual indicators, elegant typography animations, and high-quality screen effects that give your content a major premium edge.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export const AlexChenPage = () => {
+  return (
+    <div className="bg-slate-950 text-[#f4f4f6] font-sans antialiased overflow-x-hidden min-h-screen pt-32 pb-24">
+      <div className="max-w-[1180px] mx-auto px-8 relative z-10 py-16 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center animate-fade-in">
+        <div className="lg:col-span-8">
+          <div className="inline-flex items-center gap-3 text-emerald-400 font-bold uppercase tracking-[0.24em] text-xs">
+            <span className="w-6 h-[1px] bg-emerald-400"></span>
+            Lead Developer & Systems Architect
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-tech font-bold text-white mt-6 leading-[1.05] tracking-tight">
+            High-octane systems built to <span className="text-emerald-400">perform and scale.</span>
+          </h1>
+          
+          <p className="text-lg text-[#ccc] max-w-xl mt-6 leading-relaxed font-light">
+            I'm Alex Chen. I design and build highly interactive, responsive applications and server infrastructure that execute flawlessly on every device.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mt-8">
+            <a href="mailto:mdkaif62990@gmail.com?subject=Inquiry%20for%20Alex%20Chen" className="font-tech font-bold text-sm bg-emerald-400 text-[#101016] px-8 py-4 rounded-full flex items-center gap-2.5 transition-all duration-300 shadow-[0_10px_30px_-10px_rgba(52,211,153,0.6)] hover:translate-y-[-3px] hover:shadow-[0_16px_40px_-12px_rgba(52,211,153,0.85)]">
+              Let's Develop <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+
+        <div className="lg:col-span-4 relative max-w-[340px] w-full mx-auto lg:ml-auto">
+          <div className="absolute inset-[-14px] bg-gradient-to-br from-emerald-400/40 to-teal-500/30 rounded-[30px] filter blur-[2px] opacity-70"></div>
+          <div className="relative z-10 bg-gradient-to-tr from-slate-900 via-slate-950 to-slate-900 border border-white/10 rounded-3xl overflow-hidden aspect-[4/5] shadow-2xl flex flex-col items-center justify-center">
+            <img 
+              src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&h=800&q=80"
+              alt="Alex Chen Portrait"
+              className="w-full h-full object-cover select-none pointer-events-none"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+        </div>
+      </div>
+
+      <section className="py-24 bg-[#14141d]/50 border-y border-white/5 mt-16">
+        <div className="max-w-[1180px] mx-auto px-8">
+          <h2 className="text-3xl font-tech font-bold text-white mb-12">Engineering Focus</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-[#181824] border border-white/5 rounded-2xl p-8 hover:border-emerald-500/20 transition-all duration-300">
+              <Code2 className="w-10 h-10 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-2 font-tech">Full-Stack Architectures</h3>
+              <p className="text-slate-400 font-light leading-relaxed">
+                Development of super fast front-ends coupled with reliable backend endpoints that guarantee maximum security, high speed, and zero downtime.
+              </p>
+            </div>
+            <div className="bg-[#181824] border border-white/5 rounded-2xl p-8 hover:border-emerald-500/20 transition-all duration-300">
+              <DatabaseZap className="w-10 h-10 text-emerald-400 mb-6" />
+              <h3 className="text-xl font-bold text-white mb-2 font-tech">Server & API Optimizations</h3>
+              <p className="text-slate-400 font-light leading-relaxed">
+                Deep optimization of database schemas, caching layers, and external service interfaces to ensure millisecond response times.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
