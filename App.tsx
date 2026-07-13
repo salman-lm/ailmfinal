@@ -30,7 +30,7 @@ const getNormalizedPath = (pathname: string) => {
   const knownRoutes = [
     '/about', '/contact', '/aillabs', '/ailmlabs/firapro/privacy', 
     '/ailmlabs/firapro/terms', '/terms', '/refund', '/shipping', 
-    '/privacy', '/testers', '/mdkaifansari', '/team', '/sarahjenkins', '/alexchen'
+    '/privacy', '/testers', '/team/mdkaifansari', '/team/sarahjenkins', '/team/alexchen', '/team'
   ];
   
   for (const route of knownRoutes) {
@@ -104,10 +104,10 @@ const App = () => {
       '/shipping': "Delivery Policy - AILM",
       '/privacy': "Privacy Policy - AILM",
       '/testers': "12 Testers Help - GPC Testing",
-      '/mdkaifansari': "Md Kaif Ansari — AI Trainer & Content Creator",
+      '/team/mdkaifansari': "Md Kaif Ansari — AI Trainer & Content Creator",
       '/team': "Meet Our Team - AILM",
-      '/sarahjenkins': "Sarah Jenkins — Lead Video Editor & Motion Designer",
-      '/alexchen': "Alex Chen — Lead Developer & Systems Architect"
+      '/team/sarahjenkins': "Sarah Jenkins — Lead Video Editor & Motion Designer",
+      '/team/alexchen': "Alex Chen — Lead Developer & Systems Architect"
     };
     document.title = titles[path] || "AILM - 404 Not Found";
     
@@ -767,15 +767,15 @@ const App = () => {
       case '/shipping': return <LegalPage title="Delivery Policy" subtitle="Instant, Secure, and 100% Digital." content={SHIPPING_CONTENT} />;
       case '/privacy': return <LegalPage title="Privacy Policy" subtitle="Your Data, Your Trust." content={PRIVACY_CONTENT} />;
       case '/testers': return <TestersPage onContact={() => navigate('/contact')} />;
-      case '/mdkaifansari': return <MdKaifAnsariPage />;
+      case '/team/mdkaifansari': return <MdKaifAnsariPage />;
       case '/team': return <TeamPage navigate={navigate} />;
-      case '/sarahjenkins': return <SarahJenkinsPage />;
-      case '/alexchen': return <AlexChenPage />;
+      case '/team/sarahjenkins': return <SarahJenkinsPage />;
+      case '/team/alexchen': return <AlexChenPage />;
       default: return renderHome(); // Fallback to home page
     }
   };
 
-  if (path === '/mdkaifansari') {
+  if (path === '/team/mdkaifansari') {
     return <MdKaifAnsariPage />;
   }
 
