@@ -15,7 +15,7 @@ import { TESTIMONIALS, PRICING_PLANS, FAQS, SERVICE_DATA, IMPACT_STATS } from '.
 import InteractiveVideo from './components/InteractiveVideo';
 import AnimatedCounter from './components/AnimatedCounter';
 import OrderModal from './components/OrderModal';
-import { AboutPage, ContactPage, LegalPage, AILabsPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT, FIRA_PRO_PRIVACY_CONTENT, FIRA_PRO_TERMS_CONTENT, TestersPage, MdKaifAnsariPage } from './components/Pages';
+import { AboutPage, ContactPage, LegalPage, AILabsPage, TERMS_CONTENT, REFUND_CONTENT, SHIPPING_CONTENT, PRIVACY_CONTENT, FIRA_PRO_PRIVACY_CONTENT, FIRA_PRO_TERMS_CONTENT, TestersPage, MdKaifAnsariPage, TeamPage, SarahJenkinsPage, AlexChenPage } from './components/Pages';
 
 const getNormalizedPath = (pathname: string) => {
   const hash = window.location.hash;
@@ -30,7 +30,7 @@ const getNormalizedPath = (pathname: string) => {
   const knownRoutes = [
     '/about', '/contact', '/aillabs', '/ailmlabs/firapro/privacy', 
     '/ailmlabs/firapro/terms', '/terms', '/refund', '/shipping', 
-    '/privacy', '/testers', '/mdkaifansari'
+    '/privacy', '/testers', '/mdkaifansari', '/team', '/sarahjenkins', '/alexchen'
   ];
   
   for (const route of knownRoutes) {
@@ -105,7 +105,10 @@ const App = () => {
       '/shipping': "Delivery Policy - AILM",
       '/privacy': "Privacy Policy - AILM",
       '/testers': "12 Testers Help - GPC Testing",
-      '/mdkaifansari': "Md Kaif Ansari — AI Trainer & Content Creator"
+      '/mdkaifansari': "Md Kaif Ansari — AI Trainer & Content Creator",
+      '/team': "Meet Our Team - AILM",
+      '/sarahjenkins': "Sarah Jenkins — Lead Video Editor & Motion Designer",
+      '/alexchen': "Alex Chen — Lead Developer & Systems Architect"
     };
     document.title = titles[path] || "AILM - 404 Not Found";
     
@@ -147,7 +150,7 @@ const App = () => {
             <button onClick={() => scrollToSection('services')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Services</button>
             <button onClick={() => scrollToSection('pricing')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Pricing</button>
             <button onClick={() => navigate('/about')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">About</button>
-            <button onClick={() => navigate('/mdkaifansari')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Meet Our Team</button>
+            <button onClick={() => navigate('/team')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Meet Our Team</button>
             <button onClick={() => navigate('/contact')} className="text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors">Contact</button>
           </nav>
 
@@ -181,7 +184,7 @@ const App = () => {
             <button onClick={() => scrollToSection('services')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Services</button>
             <button onClick={() => scrollToSection('pricing')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Pricing</button>
             <button onClick={() => navigate('/about')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">About</button>
-            <button onClick={() => { navigate('/mdkaifansari'); setMobileMenuOpen(false); }} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Meet Our Team</button>
+            <button onClick={() => { navigate('/team'); setMobileMenuOpen(false); }} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Meet Our Team</button>
             <button onClick={() => navigate('/contact')} className="block w-full text-left px-4 py-3 text-base font-medium text-slate-600 dark:text-slate-300">Contact</button>
             <button 
               onClick={() => { setIsOrderModalOpen(true); setMobileMenuOpen(false); }}
@@ -224,7 +227,7 @@ const App = () => {
             <h4 className="text-lg font-bold text-slate-900 dark:text-white mb-6 font-tech">Company</h4>
             <ul className="space-y-4">
               <li><button onClick={() => navigate('/about')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">About Us</button></li>
-              <li><button onClick={() => navigate('/mdkaifansari')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Meet Our Team</button></li>
+              <li><button onClick={() => navigate('/team')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Meet Our Team</button></li>
               <li><button onClick={() => navigate('/contact')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Contact Us</button></li>
               <li><button onClick={() => navigate('/refund')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Refund Policy</button></li>
               <li><button onClick={() => navigate('/shipping')} className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">Shipping & Delivery</button></li>
@@ -766,6 +769,9 @@ const App = () => {
       case '/privacy': return <LegalPage title="Privacy Policy" subtitle="Your Data, Your Trust." content={PRIVACY_CONTENT} />;
       case '/testers': return <TestersPage onContact={() => navigate('/contact')} />;
       case '/mdkaifansari': return <MdKaifAnsariPage />;
+      case '/team': return <TeamPage navigate={navigate} />;
+      case '/sarahjenkins': return <SarahJenkinsPage />;
+      case '/alexchen': return <AlexChenPage />;
       default: return renderHome(); // Fallback to home page
     }
   };
