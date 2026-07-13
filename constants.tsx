@@ -1,5 +1,3 @@
-
-
 import { Testimonial, PricingPlan, ServiceItem } from './types';
 import { Users, Video, Image as ImageIcon, MonitorPlay } from 'lucide-react';
 
