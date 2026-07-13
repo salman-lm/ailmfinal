@@ -75,8 +75,7 @@ const App = () => {
   
   const navigate = (href: string) => {
     try {
-      const isSubdirectory = window.location.hostname.includes('github.io') || 
-                             (window.location.pathname !== '/' && window.location.pathname !== '/index.html');
+      const isSubdirectory = window.location.hostname.includes('github.io');
       if (isSubdirectory) {
         window.location.hash = href;
       } else {
